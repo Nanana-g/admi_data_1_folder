@@ -1,47 +1,45 @@
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
 
 # ==============================
-# 1. CADENA DE CONEXIÓN (URI)
+# 1. Cargar variables de entorno
 # ==============================
-# Reemplaza USUARIO, CONTRASEÑA y CLUSTER por los datos de MongoDB Atlas
-uri = "mongodb+srv://USUARIO:CONTRASEÑA@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority"
+load_dotenv()
+uri = os.getenv("MONGO_URI")
 
-# ==============================
-# 2. CONEXIÓN AL CLUSTER
-# ==============================
 client = MongoClient(uri)
 
 # ==============================
-# 3. BASE DE DATOS Y COLECCIÓN
+# 2. Base de datos y colección
 # ==============================
 db = client["curso_admin_datos"]
 collection = db["dataset_grupo"]
 
 # ==============================
-# 4. CONSULTA 1: Conteo total
+# 3. Consulta 1: Conteo total
 # ==============================
 total_docs = collection.count_documents({})
 print(f"Total de documentos en la colección: {total_docs}")
 
 # ==============================
-# 5. CONSULTA 2: Mostrar 5 documentos
+# 4. Consulta 2: Mostrar 5 documentos
 # ==============================
 print("\n--- 5 documentos ---")
 for doc in collection.find().limit(5):
     print(doc)
 
 # ==============================
-# 6. CONSULTA 3: Consulta con filtro
-# (ajustar el campo según el dataset)
+# 5. Consulta 3: Filtro por tipo
 # ==============================
-print("\n--- Consulta con filtro ---")
-for doc in collection.find({"country": "USA"}).limit(5):
+print("\n--- Pokémon de tipo 'fire' ---")
+for doc in collection.find({"type": "fire"}).limit(5):
     print(doc)
 
 # ==============================
-# 7. CONSULTA 4: Ordenamiento y límite
-# (ajustar el campo según el dataset)
+# 6. Consulta 4: Ordenamiento
 # ==============================
-print("\n--- Ordenamiento y límite ---")
-for doc in collection.find().sort("price", -1).limit(5):
+print("\n--- Pokémon con mayor base_experience ---")
+for doc in collection.find().sort("base_experience", -1).limit(5):
     print(doc)
+
