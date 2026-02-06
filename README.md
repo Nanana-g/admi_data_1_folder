@@ -68,7 +68,7 @@ pip install -r requirements.txt
 Se debe crear un archivo `.env` en la raíz del proyecto con la siguiente variable:
 
 ```env
-MONGO_URI=mongodb+srv://nanana:7fd5DRWTK0r14oNW@cluster0.ian5vxv.mongodb.net/
+MONGO_URI=mongodb+srv://nanana:CONTRASEÑA@cluster0.ian5vxv.mongodb.net/
 ```
 
 > ⚠️ El archivo `.env` no debe subirse al repositorio por razones de seguridad.
