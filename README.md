@@ -30,11 +30,12 @@ El dataset utilizado corresponde a información de Pokémon obtenida desde la **
 ## 📂 Estructura del proyecto
 
 ```
+├── .gitignore
 ├── extract_pokemon.py          # Parte A: extracción de datos desde la API
 ├── load_pokemon_to_mongo.py    # Parte B: carga del dataset en MongoDB Atlas
-├── verificar_mongo.py          # Script de verificación de datos
-├── pokemon_dataset.csv         # Dataset generado (CSV)
-├── .env                        # Variables de entorno (no versionado)
+├── conexion_mongodb            # Parte Conexión a Python y consultas
+├── verificación.py             # Script de verificación de datos del MongoDB Atlas
+├── requirements.txt            # Requisitos para instalar
 └── README.md                   # Documentación del proyecto
 ```
 
@@ -42,10 +43,21 @@ El dataset utilizado corresponde a información de Pokémon obtenida desde la **
 
 ## ⚙️ Configuración del entorno
 
-### 1️⃣ Instalación de dependencias
+### 1️⃣ Instalación de dependencias y creación/activación del ambiente virtual
+
+Crear venv:
+```bash
+python -m venv venv
+```
+---
+
+Activar venv en windows:
+```bash
+venv/scripts/activate
+```
 
 ```bash
-pip install pymongo pandas requests python-dotenv
+pip install -r requirements.txt
 ```
 
 ---
@@ -55,7 +67,7 @@ pip install pymongo pandas requests python-dotenv
 Se debe crear un archivo `.env` en la raíz del proyecto con la siguiente variable:
 
 ```env
-MONGO_URI=mongodb+srv://USUARIO:CONTRASEÑA@cluster.mongodb.net/?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://nanana:7fd5DRWTK0r14oNW@cluster0.ian5vxv.mongodb.net/
 ```
 
 > ⚠️ El archivo `.env` no debe subirse al repositorio por razones de seguridad.
