@@ -111,7 +111,7 @@ Resultado esperado:
 Permite comprobar la existencia de bases de datos, colecciones y la cantidad de documentos cargados.
 
 ```bash
-python verificar_mongo.py
+python verificación.py
 ```
 
 ---
@@ -124,6 +124,10 @@ Se realizan consultas sobre la colección creada, incluyendo:
 * Visualización de registros.
 * Filtros por tipo de Pokémon.
 * Ordenamiento por experiencia base.
+
+```bash
+python extract_pokemon.py
+```
 
 ---
 
