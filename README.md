@@ -126,7 +126,7 @@ Se realizan consultas sobre la colección creada, incluyendo:
 * Ordenamiento por experiencia base.
 
 ```bash
-python extract_pokemon.py
+python conexion_mongodb.py
 ```
 
 ---
